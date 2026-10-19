@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="theme-color" content="#14181c"><meta name="apple-mobile-web-app-title" content="Tank Inspection"><title>MagTec Tank Inspection</title><style>
+:root{color-scheme:dark;--bg:#14181c;--panel:#1c2127;--line:#36404a;--text:#eef1f4;--sub:#adb7c1;--amber:#f5a623}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:20px 12px 32px}.app{max-width:880px;margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.head{padding:22px 24px 18px;border-bottom:1px solid var(--line)}.brand{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}h1{font-size:24px;line-height:1.25;font-weight:600;margin:6px 0 8px}h2{font-size:20px;font-weight:600;margin:0 0 8px}p{margin:0 0 16px}.sub{color:var(--sub);font-size:14px}.head p{margin:0}.steps{display:flex;flex-wrap:wrap;gap:6px;padding:14px 24px;border-bottom:1px solid var(--line)}.step{border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:6px;min-height:44px;padding:9px 12px;font:600 13px/1.3 'Segoe UI',Roboto,Helvetica,Arial,sans-serif;cursor:pointer}.step[aria-current=step]{background:var(--amber);border-color:var(--amber);color:#211809}.progress{height:4px;background:var(--line)}#progressFill{height:100%;width:0;background:var(--amber)}.content{padding:24px}.panel[hidden]{display:none!important}.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}label,.field-label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}input,select,textarea{width:100%;min-width:0;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:12px;font:16px/1.4 'Segoe UI',Roboto,Helvetica,Arial,sans-serif}textarea{resize:vertical;min-height:88px}input,select{min-height:48px}input:focus,select:focus,textarea:focus{outline:2px solid var(--amber);outline-offset:1px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}.field-help{color:var(--sub);font-size:12px;margin:5px 0 0}.check{padding:18px 0;border-bottom:1px solid var(--line)}.check:first-child{padding-top:0}.check:last-child{border-bottom:0}.item-name{font-size:16px;font-weight:600;margin:0 0 12px}.number{color:var(--amber);display:inline-block;min-width:28px}.check-fields{display:grid;grid-template-columns:150px 90px minmax(0,1fr);gap:12px;align-items:start}.comment textarea{min-height:48px;height:48px}.expiry{margin-top:12px;max-width:290px}.check[data-result=Fail]{border-left:3px solid #ff9389;padding-left:12px}.check[data-result=Pass]{border-left:3px solid #62c994;padding-left:12px}.check[data-result="N/A"]{border-left:3px solid #a5b8cf;padding-left:12px}.tire{border-bottom:1px solid var(--line);padding:18px 0}.tire:first-child{padding-top:0}.tire-name{font-weight:600;margin-bottom:10px}.notes{margin-top:24px}.foot{display:flex;gap:12px;border-top:1px solid var(--line);padding:18px 24px}.button{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:12px 16px;border:1px solid var(--line);border-radius:7px;text-decoration:none;font:600 15px/1.4 'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);cursor:pointer;text-align:center}.primary{background:var(--amber);border-color:var(--amber);color:#211809}.primary:hover{background:#ffbb4d}.grow{flex:1}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.actions .button{flex:1 1 180px}.notice{padding:14px;border:1px solid #846332;border-radius:7px;background:#30281b;color:var(--text);font-size:14px;margin-bottom:18px}.recipients{padding:14px;background:var(--bg);border-radius:7px;margin:16px 0;overflow-wrap:anywhere;font-size:13px}.recipients strong{display:block;margin-bottom:4px;color:var(--sub)}.report{font:14px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;min-height:360px;white-space:pre-wrap}.backup{border:1px solid var(--line);border-radius:7px;padding:14px;margin-top:18px}.backup summary{font-size:14px;font-weight:600;cursor:pointer;min-height:28px}.backup p{margin-top:12px;margin-bottom:8px}.status{font-size:13px;color:var(--sub);min-height:20px;margin-top:10px}.bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;border-top:1px solid var(--line)}.bottom .button{font-size:12px;min-height:40px;padding:8px 12px}.bottom small{color:var(--sub);font-size:12px}.step-count{font-size:12px;color:var(--sub);margin-bottom:12px}noscript{display:block;padding:24px;color:var(--text)}
+@media(max-width:620px){body{padding:0}.app{border:0;border-radius:0}.head,.content{padding:20px 16px}.steps{padding:12px 16px;gap:5px}.step{flex:1 1 28%;font-size:12px;padding:8px}.fields{grid-template-columns:1fr}.check-fields{grid-template-columns:minmax(0,1fr) 90px}.comment{grid-column:1/-1}.comment textarea{height:72px}.foot,.bottom{padding:16px}.tire .fields{grid-template-columns:1fr 1fr}.report{font-size:13px}.bottom{align-items:flex-start}.head h1{font-size:22px}}
+
+.app [hidden]{display:none!important}.entry{padding:20px 0;border-bottom:1px solid var(--line)}.entry:first-child{padding-top:0}.entry:last-child{border-bottom:0}.entry h3{font-size:17px;font-weight:600;margin:0 0 12px}.entry .answer-notes{margin-top:12px}.entry .answer-notes textarea{min-height:70px}.entry .quantity-fields{display:grid;grid-template-columns:minmax(130px,1fr) minmax(0,2fr);gap:14px}.entry .quantity-fields textarea{min-height:48px;height:48px}.entry .condition{min-height:75px}.entry select{max-width:300px}@media(max-width:620px){.entry .quantity-fields{grid-template-columns:1fr}.entry .quantity-fields textarea{height:75px}.entry select{max-width:none}}
+</style></head><body>
+<main class="app">
+<header class="head"><div class="brand">MagTec Alaska</div><h1>Tank Inspection</h1><p class="sub">400 BBL &amp; 600 BBL tanks &middot; In, Out &amp; Yard inspections</p></header>
+<nav class="steps" aria-label="Inspection sections">
+ <button type="button" class="step" data-step="0" aria-controls="detailsPanel">1. Details</button>
+ <button type="button" class="step" data-step="1" aria-controls="fittings">2. Fittings &amp; safety</button>
+ <button type="button" class="step" data-step="2" aria-controls="tankFoam">3. Tank &amp; foam</button>
+ <button type="button" class="step" data-step="3" aria-controls="notesPanel">4. Accessories &amp; notes</button>
+ <button type="button" class="step" data-step="4" aria-controls="review">5. Review &amp; email</button>
+</nav>
+<div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+<noscript>Open this page in Safari, Chrome, or Edge with JavaScript enabled to fill out the inspection.</noscript>
+<div class="content" id="content" hidden>
+ <div class="step-count" id="stepCount" aria-live="polite"></div>
+ <section class="panel" id="detailsPanel" aria-labelledby="detailsTitle">
+  <h2 id="detailsTitle">Tank &amp; inspector details</h2><p class="sub">Select the inspection type and tank size, then enter the details below.</p><div class="fields"><div><label for="inspectionType">Inspection type</label><select id="inspectionType" data-key="inspectionType"><option value="">Select inspection type</option><option value="In">In</option><option value="Out">Out</option><option value="Yard">Yard</option></select></div>
+<div><label for="tankSize">Tank size</label><select id="tankSize" data-key="tankSize"><option value="">Select tank size</option><option value="400 BBL">400 BBL</option><option value="600 BBL">600 BBL</option></select></div>
+<div><label for="asset">Asset number</label><input id="asset" data-key="asset" type="text" autocomplete="off"></div>
+<div><label for="technician">Technician / inspector name</label><input id="technician" data-key="technician" type="text" autocomplete="name"><p class="field-help">Your name supplies the initials for each answered inspection item.</p></div>
+<div><label for="date">Inspection date</label><input id="date" data-key="date" type="date" autocomplete="off"></div>
+<div><label for="standbyDate">Standby date (if applicable)</label><input id="standbyDate" data-key="standbyDate" type="date" autocomplete="off"></div>
+<div><label for="rentalCustomer">Rental order number or customer name</label><input id="rentalCustomer" data-key="rentalCustomer" type="text" autocomplete="off"></div>
+<div><label for="serial">Serial number</label><input id="serial" data-key="serial" type="text" autocomplete="off"></div></div>
+ </section>
+ <section class="panel" id="fittings" aria-labelledby="fittingsTitle" hidden>
+  <h2 id="fittingsTitle">Fittings &amp; safety</h2><p class="sub">Enter the quantities present and select the condition of each item. Add notes wherever needed.</p><div id="fittingsItems"></div>
+ </section>
+ <section class="panel" id="tankFoam" aria-labelledby="tankFoamTitle" hidden>
+  <h2 id="tankFoamTitle">Tank &amp; foam</h2><p class="sub">Record the tank component conditions and foam findings. Add details wherever needed.</p><div id="tankFoamItems"></div>
+ </section>
+ <section class="panel" id="notesPanel" aria-labelledby="notesTitle" hidden>
+  <h2 id="notesTitle">Accessories &amp; notes</h2>
+  <label for="accessories">Accessories</label><textarea id="accessories" data-key="accessories" rows="4"></textarea>
+  <div class="notes"><label for="notes">Additional comments / repairs needed</label><textarea id="notes" data-key="notes" rows="5"></textarea></div>
+ </section>
+ <section class="panel" id="review" aria-labelledby="reviewTitle" hidden>
+  <h2 id="reviewTitle">Review &amp; open email</h2><p class="sub">The completed inspection goes in the email body. Review the draft in your email app, then send it.</p>
+  <div id="completion" class="notice"></div>
+  <div class="recipients"><strong>Email recipients</strong><span id="recipientList"></span></div>
+  <div class="actions"><a class="button primary" id="openEmail" href="mailto:NSrentals@magtecalaska.com,nsshop@magtecalaska.com,nsd-mgr@magtecalaska.com">Open filled-out email</a></div>
+  <p class="status" id="mailStatus" role="status"></p>
+  <label for="reportText">Complete email body</label><textarea id="reportText" class="report" readonly spellcheck="false"></textarea>
+  <p class="field-help">The completed email should end with END OF INSPECTION.</p>
+  <details class="backup" id="backup"><summary>Backup if the email opens with missing text</summary>
+   <p class="sub">If your phone limits the email text, copy the full report, open the addressed email, and paste it into the body.</p>
+   <div class="actions"><button type="button" class="button" id="copyReport">1. Copy full report</button><a class="button" id="shortEmail" href="mailto:NSrentals@magtecalaska.com,nsshop@magtecalaska.com,nsd-mgr@magtecalaska.com">2. Open email to paste</a></div>
+   <button type="button" class="button" id="selectReport">Select report for manual copy</button><p class="status" id="copyStatus" role="status"></p>
+   <p class="field-help">If your device blocks copying or opening email from this browser, use your approved email app with the addresses and report shown above.</p>
+  </details>
+ </section>
+</div>
+<div class="foot" id="foot" hidden><button class="button" id="back" type="button">Back</button><button class="button primary grow" id="next" type="button">Next</button></div>
+<footer class="bottom"><small id="draftStatus" role="status">Your entries stay here while you fill out the form.</small><button class="button" id="clear" type="button">Start over</button></footer>
+</main>
+<script id="tankConfig">var TankConfig={"fields": [{"key": "inspectionType", "label": "Inspection type", "type": "select", "options": ["In", "Out", "Yard"]}, {"key": "tankSize", "label": "Tank size", "type": "select", "options": ["400 BBL", "600 BBL"]}, {"key": "asset", "label": "Asset number", "type": "text"}, {"key": "technician", "label": "Technician / inspector name", "type": "text"}, {"key": "date", "label": "Inspection date", "type": "date"}, {"key": "standbyDate", "label": "Standby date (if applicable)", "type": "date"}, {"key": "rentalCustomer", "label": "Rental order number or customer name", "type": "text"}, {"key": "serial", "label": "Serial number", "type": "text"}], "groups": [{"id": "fittings", "title": "Fittings & safety"}, {"id": "tankFoam", "title": "Tank & foam"}], "items": [{"key": "valves", "group": "fittings", "title": "4\" butterfly valves", "type": "quantity"}, {"key": "plugs", "group": "fittings", "title": "4\" plugs", "type": "quantity"}, {"key": "steamPlugs", "group": "fittings", "title": "2\" steam line plugs", "type": "quantity"}, {"key": "ladder", "group": "fittings", "title": "Condition of ladder", "type": "condition"}, {"key": "fallRestraint", "group": "fittings", "title": "Fall restraint", "type": "condition"}, {"key": "fallSlider", "group": "fittings", "title": "Fall restraint slider", "type": "condition"}, {"key": "sling", "group": "fittings", "title": "Bridal", "type": "condition"}, {"key": "bridalCollar", "group": "fittings", "title": "Bridal collar condition", "type": "condition"}, {"key": "gaugeBoard", "group": "tankFoam", "title": "Gauge board", "type": "condition"}, {"key": "gaugePulleys", "group": "tankFoam", "title": "Gauge board pulleys", "type": "condition"}, {"key": "topVent", "group": "tankFoam", "title": "Top aluminum vent", "type": "condition"}, {"key": "landingBracket", "group": "tankFoam", "title": "Crutch landing bracket", "type": "condition"}, {"key": "hatchBolted", "group": "tankFoam", "title": "Is the hatch bolted?", "type": "yesno"}, {"key": "cleaned", "group": "tankFoam", "title": "Has the tank been cleaned?", "type": "yesno"}, {"key": "cleanCertificate", "group": "tankFoam", "title": "Cleaning certificate / reference (if available)", "type": "text", "optional": true}, {"key": "foamBubbles", "group": "tankFoam", "title": "Foam condition — bubbles", "type": "condition", "foam": true}, {"key": "foamCracks", "group": "tankFoam", "title": "Foam condition — cracks", "type": "condition", "foam": true}, {"key": "foamOther", "group": "tankFoam", "title": "Foam condition — other defects", "type": "condition", "foam": true}], "recipients": ["NSrentals@magtecalaska.com", "nsshop@magtecalaska.com", "nsd-mgr@magtecalaska.com"]};</script>
+<script id="tankApp">var TankReport=(function(C){
+ 'use strict';
+ function str(v){return v==null?'':String(v);}
+ function value(v){return str(v).trim()?str(v):'Not recorded';}
+ function initials(s){return (str(s.fields.technician).match(/\p{L}[\p{L}\p{M}'’-]*/gu)||[]).map(function(w){return Array.from(w)[0];}).join('').toUpperCase();}
+ function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+ function fresh(){var entries={};C.items.forEach(function(i){entries[i.key]={answer:'',condition:'',notes:''};});return {version:1,formKind:'tank',fields:{date:today()},entries:entries};}
+ function normalize(s){
+  var d=fresh();if(!s||s.version!==1||s.formKind!=='tank')return d;
+  C.fields.concat([{key:'accessories'},{key:'notes'}]).forEach(function(f){var v=(s.fields||{})[f.key];if(typeof v==='string'&&(!f.options||f.options.indexOf(v)>=0||v===''))d.fields[f.key]=v;});
+  C.items.forEach(function(i){var e=(s.entries||{})[i.key]||{},v=d.entries[i.key];v.answer=str(e.answer);v.notes=str(e.notes);v.condition=['In good condition','Needs repair'].indexOf(e.condition)>=0?e.condition:'';
+   if(i.type==='condition'&&['','In good condition','Needs repair'].indexOf(v.answer)<0){
+    var previous=v.answer;
+    if(i.foam&&['Yes','No'].indexOf(previous)>=0){v.answer=previous==='Yes'?'Needs repair':'In good condition';}else{v.answer='';}
+    v.notes='Previous answer: '+previous+(v.notes?'\n'+v.notes:'');
+   }
+   if(i.type==='yesno'&&['','Yes','No','N/A'].indexOf(v.answer)<0)v.answer='';
+  });return d;
+ }
+ function report(s){
+  var lines=['TANK INSPECTION REPORT',''];
+  C.fields.forEach(function(f){lines.push(f.label+': '+value(s.fields[f.key]));});lines.push('Inspector initials (from name): '+value(initials(s)));
+  C.groups.forEach(function(g){lines.push('',g.title.toUpperCase());C.items.forEach(function(i){if(i.group!==g.id)return;var e=s.entries[i.key];lines.push('',i.title);if(i.type==='quantity'){lines.push('Quantity: '+value(e.answer),'Condition: '+value(e.condition),'Notes: '+value(e.notes));}else{lines.push((i.type==='condition'?'Condition: ':'Answer: ')+value(e.answer));if(e.notes.trim())lines.push('Details: '+e.notes);}if(e.answer.trim()||e.notes.trim()||str(e.condition).trim())lines.push('Initials: '+value(initials(s)));});});
+  lines.push('','ACCESSORIES',s.fields.accessories&&s.fields.accessories.trim()?s.fields.accessories:'None entered','','ADDITIONAL COMMENTS / REPAIRS NEEDED',s.fields.notes&&s.fields.notes.trim()?s.fields.notes:'None entered','','END OF INSPECTION');
+  return lines.join('\n').replace(/\r\n|\r|\n/g,'\r\n');
+ }
+ function encode(v){var s=str(v);if(s.toWellFormed)s=s.toWellFormed();else s=s.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDFFF]/g,function(m){return m.length===2?m:'\uFFFD';});return encodeURIComponent(s);}
+ function link(s,body){var subject=['Tank Inspection',value(s.fields.inspectionType),value(s.fields.tankSize),value(s.fields.asset),value(s.fields.date)].join(' - ');return 'mailto:'+C.recipients.join(',')+'?subject='+encode(subject)+(body?'&body='+encode(report(s)):'');}
+ return {fresh:fresh,normalize:normalize,initials:initials,report:report,link:link};
+})(TankConfig);
+
+(function(C,R){
+ 'use strict';
+ var KEY='magtec-tank-inspection-draft-v1',state=R.fresh(),step=0;
+ var panels=['detailsPanel','fittings','tankFoam','notesPanel','review'];
+ function el(id){return document.getElementById(id);}
+ try{var saved=localStorage.getItem(KEY);if(saved){state=R.normalize(JSON.parse(saved));el('draftStatus').textContent='Saved tank inspection restored on this device.';}}catch(e){}
+ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));el('draftStatus').textContent='Draft saved on this device.';}catch(e){el('draftStatus').textContent='Keep this page open to retain your entries.';}}
+ function element(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
+ function field(parent,labelText,id,control){var wrap=element('div'),label=element('label','',labelText);label.htmlFor=id;control.id=id;wrap.append(label,control);parent.appendChild(wrap);return wrap;}
+ function textarea(value){var n=element('textarea');n.rows=2;n.value=value||'';return n;}
+ function conditionSelect(value){var n=element('select');[['','Select condition'],['In good condition','In good condition'],['Needs repair','Needs repair']].forEach(function(v){var o=element('option','',v[1]);o.value=v[0];n.appendChild(o);});n.value=value||'';return n;}
+ function buildItems(){C.items.forEach(function(i){
+  var entry=state.entries[i.key],row=element('div','entry');row.appendChild(element('h3','',i.title));
+  var answer;
+  if(i.type==='quantity'){
+   var grid=element('div','quantity-fields');answer=element('input');answer.type='text';answer.value=entry.answer;answer.autocomplete='off';field(grid,'Quantity','answer-'+i.key,answer);
+   var condition=conditionSelect(entry.condition);field(grid,'Condition','condition-'+i.key,condition);condition.addEventListener('change',function(){entry.condition=condition.value;save();});
+   var notes=textarea(entry.notes);field(grid,'Notes / repairs needed','notes-'+i.key,notes);notes.addEventListener('input',function(){entry.notes=notes.value;save();});row.appendChild(grid);
+  }else if(i.type==='condition'){
+   answer=conditionSelect(entry.answer);field(row,'Condition','answer-'+i.key,answer);
+   var conditionNotes=textarea(entry.notes);field(row,'Notes / repairs needed','notes-'+i.key,conditionNotes).className='answer-notes';conditionNotes.addEventListener('input',function(){entry.notes=conditionNotes.value;save();});
+  }else if(i.type==='yesno'){
+   answer=element('select');[['','Select answer'],['Yes','Yes'],['No','No'],['N/A','N/A']].forEach(function(v){var o=element('option','',v[1]);o.value=v[0];answer.appendChild(o);});answer.value=entry.answer;field(row,'Answer','answer-'+i.key,answer);
+   var details=textarea(entry.notes);field(row,'Details / notes','notes-'+i.key,details).className='answer-notes';details.addEventListener('input',function(){entry.notes=details.value;save();});
+  }else{
+   answer=textarea(entry.answer);answer.className='condition';field(row,i.type==='condition'?'Condition / findings':'Certificate details / reference','answer-'+i.key,answer);
+  }
+  answer.addEventListener((i.type==='yesno'||i.type==='condition')?'change':'input',function(){entry.answer=answer.value;save();});el(i.group+'Items').appendChild(row);
+ });}
+ function review(){var questions=C.items.filter(function(i){return !i.optional;}),answered=questions.filter(function(i){var e=state.entries[i.key];return e.answer.trim()!==''&&(i.type!=='quantity'||e.condition.trim()!=='');}).length;
+  var summary=answered+' of '+questions.length+' inspection questions answered. Blank fields appear as Not recorded.';
+  if(!state.fields.inspectionType)summary+=' Inspection type is not selected.';if(!state.fields.tankSize)summary+=' Tank size is not selected.';if(!R.initials(state))summary+=' Enter the technician name in Details to include initials.';
+  el('completion').textContent=summary;el('reportText').value=R.report(state);el('openEmail').href=R.link(state,true);el('shortEmail').href=R.link(state,false);el('recipientList').textContent=C.recipients.join('; ');
+ }
+ function show(index){step=Math.max(0,Math.min(panels.length-1,index));panels.forEach(function(id,i){el(id).hidden=i!==step;});document.querySelectorAll('[data-step]').forEach(function(b){if(Number(b.dataset.step)===step)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});el('stepCount').textContent='Section '+(step+1)+' of '+panels.length;el('progressFill').style.width=((step+1)/panels.length*100)+'%';el('back').hidden=step===0;el('next').hidden=step===panels.length-1;el('next').textContent=step===panels.length-2?'Review inspection':'Next';el('foot').hidden=false;if(step===panels.length-1)review();window.scrollTo(0,0);}
+ document.querySelectorAll('[data-key]').forEach(function(n){n.value=state.fields[n.dataset.key]||'';n.addEventListener(n.tagName==='SELECT'?'change':'input',function(){state.fields[n.dataset.key]=n.value;save();});});
+ document.querySelectorAll('[data-step]').forEach(function(n){n.addEventListener('click',function(){show(Number(n.dataset.step));});});
+ el('back').addEventListener('click',function(){show(step-1);});el('next').addEventListener('click',function(){show(step+1);});
+ el('openEmail').addEventListener('click',function(){save();el('mailStatus').textContent='Opening your email app. Check that the draft ends with END OF INSPECTION, then send it. Use the backup below if text is missing.';});
+ el('shortEmail').addEventListener('click',function(){el('copyStatus').textContent='Paste the full report into the email body, review the addresses, then send.';});
+ function selectReport(){var n=el('reportText');n.focus();n.select();n.setSelectionRange(0,n.value.length);}
+ function legacyCopy(){selectReport();var ok=false;try{ok=document.execCommand('copy');}catch(e){}el('copyStatus').textContent=ok?'Full report copied. Open the email to paste it.':'Report selected. Use your device\'s Copy command, then open the email to paste it.';}
+ el('copyReport').addEventListener('click',function(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(el('reportText').value).then(function(){el('copyStatus').textContent='Full report copied. Open the email to paste it.';},legacyCopy);}else legacyCopy();});
+ el('selectReport').addEventListener('click',function(){selectReport();el('copyStatus').textContent='Report selected. Use your device\'s Copy command, then open the email to paste it.';});
+ el('clear').addEventListener('click',function(){if(!window.confirm('Clear this inspection and start a new one?'))return;state=R.fresh();try{localStorage.removeItem(KEY);}catch(e){}document.querySelectorAll('[data-key]').forEach(function(n){n.value=state.fields[n.dataset.key]||'';});C.groups.forEach(function(g){el(g.id+'Items').replaceChildren();});buildItems();el('mailStatus').textContent='';el('copyStatus').textContent='';el('reportText').value='';el('backup').open=false;el('draftStatus').textContent='New tank inspection started.';show(0);});
+ buildItems();el('content').hidden=false;show(0);
+})(TankConfig,TankReport);
+</script>
+</body></html>
